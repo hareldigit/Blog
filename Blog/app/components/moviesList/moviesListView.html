@@ -1,0 +1,15 @@
+
+<div class="row" ng-controller="moviesListController">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-6" ng-repeat="movie in movies"> 
+                <div class="blog-list-item" ng-click="goUpdateItem(movie.id)">
+                        <h3 class="blog-list-title">{{movie.Title}}</h3> 
+                        <img ng-src="{{movie.Image}}" class="blog-list-img" alt="">
+                        <p class="blog-list-description">{{movie.Description}}</p>
+                        <!-- <div ng-if="($index+1)%2==0" class="clearfix"></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
