@@ -86,6 +86,27 @@ app.factory('dataService', ['$http', '$q' , function ($http, $q ) {
         }
 
 
+        function _updateMovieInner(movie){
+            var def = $q.defer();
+            getMovie(movie.id).then(function(data){
+                movie.id = id;
+                def.resolve(service.movies.push(movie));
+            });
+            return def.promise;
+        }
+
+        function updateMovie(movie){
+            var def = $q.defer();
+            if(!service.movies.length){
+                getMovies().then(function(){
+                def.resolve( _updateMovieInner(movie));
+                })
+            }else{
+               def.resolve(_updateMovieInner(movie));
+            }
+            return def.promise;
+        }
+
            // interface
         var service = {
             movies: [],
