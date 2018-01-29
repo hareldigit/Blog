@@ -1,0 +1,12 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "main": "Scripts/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "echo \"Staring my app\"  && live-server --browser=chrome --spa " 
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
