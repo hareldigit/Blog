@@ -1,25 +1,20 @@
-/* @import '~bootstrap/dist/css/bootstrap.min.css'; */
-.title {
-    height:25px;
-    font-size:14pt;
-    padding-right: 200px;
+.navbar-nav li > a {
+	text-transform: capitalize;
+	color: #333;
+	transition: background-color .2s, color .2s;
+	
+	&:hover,
+	&:focus {
+		background-color: #333;
+		color: #fff;
+	}
 }
-.description {
-    height:200px;
-    font-size:14pt;
-    padding-right: 200px;
+
+.navbar-nav li.active > a {
+	background-color: #333;
+	color: #fff;
 }
-.link {
-    height:25px;
-    font-size:14pt;
-    padding-right: 200px;
-}
-.publish{
-    padding-right: 200px;
-}
-.delete{
-    padding-right: 200px;
-}
+
 
 .blog-list-item{
     height: 340px;

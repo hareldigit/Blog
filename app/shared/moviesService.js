@@ -1,4 +1,4 @@
-app.factory('dataService', ['$http', '$q' , function ($http, $q ) {
+app.factory('moviesService', ['$http', '$q' , function ($http, $q ) {
      
 
         // implementation
@@ -27,13 +27,9 @@ app.factory('dataService', ['$http', '$q' , function ($http, $q ) {
 
         function getMovie(id){
             var def = $q.defer();
-            if(!service.movies.length){
-                getMovies().then(function(){
+            getMovies().then(function(){
                 def.resolve( _getMovieInner(id));
-                })
-            }else{
-               def.resolve(_getMovieInner(id));
-            }
+            })
             return def.promise;
         }
 
@@ -47,13 +43,9 @@ app.factory('dataService', ['$http', '$q' , function ($http, $q ) {
 
         function getNextId(){
             var def = $q.defer();
-            if(!service.movies.length){
-                getMovies().then(function(){
+            getMovies().then(function(){
                 def.resolve(_getNextIdInner());
-                })
-            }else{
-               def.resolve(_getNextIdInner());
-            }
+            })
             return def.promise;
         }
 
@@ -75,13 +67,9 @@ app.factory('dataService', ['$http', '$q' , function ($http, $q ) {
 
         function deleteMovie(id){
             var def = $q.defer();
-            if(!service.movies.length){
-                getMovies().then(function(){
+            getMovies().then(function(){
                 def.resolve( service.movies = _deleteMovieInner(id));
-                })
-            }else{
-               def.resolve( service.movies = _deleteMovieInner(id));
-            }
+            })
             return def.promise;
         }
 
@@ -89,31 +77,28 @@ app.factory('dataService', ['$http', '$q' , function ($http, $q ) {
         function _updateMovieInner(movie){
             var def = $q.defer();
             getMovie(movie.id).then(function(data){
-                movie.id = id;
-                def.resolve(service.movies.push(movie));
+                data = movie;
+                def.resolve("updated");
             });
             return def.promise;
         }
 
         function updateMovie(movie){
             var def = $q.defer();
-            if(!service.movies.length){
-                getMovies().then(function(){
+            getMovies().then(function(){
                 def.resolve( _updateMovieInner(movie));
-                })
-            }else{
-               def.resolve(_updateMovieInner(movie));
-            }
+            })         
             return def.promise;
         }
 
-           // interface
+        // interface
         var service = {
             movies: [],
             getMovies: getMovies,
             getMovie: getMovie,
             addMovie : addMovie,
-            deleteMovie : deleteMovie
+            deleteMovie : deleteMovie,
+            updateMovie : updateMovie
         };
 
         return service;

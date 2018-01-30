@@ -1,4 +1,4 @@
-<div class="row" ng-controller="EditorController" action="/action_page.php">
+<div class="row" ng-controller="movieEditorController" action="/action_page.php">
   <div class="col-xs-12">
     <div class="row bottom15">
       <div class="col-xs-12 col-md-8">
@@ -19,7 +19,7 @@
         <input type="text" name="lname" class="form-control" ng-model="movie.Image">
       </div>
     </div>
-    <input type="button" class="publish" value="{{btnSaveText}}" ng-click="saveItem()">
-    <input type="button" ng-show="stateId==1" class="delete" id="slide_stop_button" value="Delete" ng-click="deleteMovie()">
+    <input type="button" class="publish" value="{{btnSaveText}}" ng-click="saveMovie()">
+    <input type="button" ng-if="viewState=='edit'" class="delete" id="slide_stop_button" value="Delete" ng-click="deleteMovie()">
   </div>
 </div>
